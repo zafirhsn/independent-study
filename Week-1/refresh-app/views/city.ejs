@@ -25,26 +25,35 @@
     button {
       width: 150px;
     }
+
+    .btn-primary {
+      background-color: #038800;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <form>
+    <div class="row">
+      <form action="/" method="POST" class="form-inline">
+        <div class="col">
+            <button type="submit" name="city" value="boston" class="btn btn-primary">Boston</button>
+        </div>
+        <div class="col">
+            <button type="submit" name="city" value="new york" class="btn btn-primary">New York</button>
+        </div>
+        <div class="col">
+            <button type="submit" name="city" value="tokyo" class="btn btn-primary">Tokyo</button>
+        </div>
+        <div class="col">
+            <button type="submit" name="city" value="san francisco" class="btn btn-primary">San Francisco</button>
+        </div>
+    </form>
+    </div>
     <div class="row">
       <div class="col">
-          <button type="submit" class="btn btn-primary">Boston</button>
-      </div>
-      <div class="col">
-          <button type="submit" class="btn btn-primary">New York</button>
-      </div>
-      <div class="col">
-          <button type="submit" class="btn btn-primary">Tokyo</button>
-      </div>
-      <div class="col">
-          <button type="submit" class="btn btn-primary">San Francisco</button>
+        <p>It is currently <%= temp %> in <%= city %></p>
       </div>
     </div>
-  </form>
   </div>
 
 
