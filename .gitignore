@@ -60,7 +60,9 @@ typings/
 # next.js build output
 .next
 
-#Config files
+#Config files and other stuff
 config.js
 */config.js
 */node_modules/
+*/*/package-lock.json
+*/package-lock.json
