@@ -45,8 +45,25 @@ function Employee(name) {
   this.age = 21;
   this.location = "New York";
   this.empID = 12345;
-
 }
+
+let returnEmployee = ()=> {
+  const name = "Zafir";
+  const age = 21;
+  const position = "Manager";
+  const knowledge = ["Javascript", "HTML", "CSS"];
+
+  console.log(`His name is ${name}, he is ${age} year old and he works as ${position}`); 
+  console.log(`He knows ${ knowledge[Math.floor(Math.random() * knowledge.length)] }`);
+}
+
+returnEmployee();
+
+const artists = ["Kendrick", "U2", "Bruno Mars", "Electric guest"];
+
+artists.forEach(artist => {
+  console.log(artist);
+});
 
 // Prototypal inheritance, all instances of class Employee have access to same prototype object
 Employee.prototype.company = "Tech";
