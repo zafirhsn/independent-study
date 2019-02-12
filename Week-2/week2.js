@@ -1,58 +1,52 @@
 
-const paintings = [
-  {name:'Mona lisa',width:200,height:200},
-  {name:'The scream',width:400,height:600},
-  {name:'The last supper',width:600,height:700}
-]
-
-let descrip = paintings.map(painting => {
-  return `The ${painting.name} is ${painting.width} x ${painting.height}`
-})
-
-descrip.forEach(item => {
-  console.log(item);
-})
-
-
-const cars = [
-  {name:'Ford',price:200},
-  {name:'Nissan',price:400},
-  {name:'Nissan',price:600}
-]
-
-
-let carDescr = cars.filter(car => {
-  return car.price > 300;
-});
-
-console.log(carDescr);
-
-const channel = [
-  {name:'HBO',premium:true},
-  {name:'LIFE',premium:false},
-  {name:'Max',premium:true},
-  {name:'Cooking channel',premium:false},
-  {name:'WOBI',premium:false}
+const names = [
+  "Zafir",
+  "Razin",
+  "Lenay"
 ];
 
-const user = {
-  name:'Francis',
-  premium:true,
-  premiumChannels:function(){
-      return channel.filter(channel => {
-        return channel.premium && this.premium;
-      });
-      
-  },
-  channels:function(){
-      // GET THE NON-PREMIUM CHANNELS
-      return channel.filter(channel => {
-        return !channel.premium;
-      });
+for(let name of names) {
+  console.log(name);
+}
+
+const nums = [10,20,30,40,50];
+let total = 0;
+
+for(let num of nums) {
+  total += num;
+}
+
+console.log(total);
+
+
+// Fat arrow function have different scoping of 'this' keyword. Lexical scoping, not block scoping. JS will look one level above function for 'this' scope. Helpful for functions within fucntions. However, need to be careful. Don't want arrow functions for object properties
+
+const cars = {
+  brands: ["Ford", "Audi", "BMW"],
+  category: "Sport car",
+  message: function() {
+    return this.brands.map(function(brand) {
+      console.log(`${brand} is a ${this.category}`);
+    });
   }
 }
 
-console.log(user.premiumChannels())
-// brings HBO and MAX
-console.log(user.channels())
-// brings LIFE, COOCKING CHANNEL AND WOBI
+//Undefined because the callback within map does not know what 'this' is. It can't refer to the object. This is where fat arrow functions are useful
+cars.message();
+
+// ===================
+// EXERCISE 1
+// var names= ["James","Ron","Lisa","Tommy"];
+var randomName = items => {
+ return items[Math.floor(Math.random()*items.length)]
+}
+var randomNumber = (maxNumber,minNumber) => {
+ return Math.floor(Math.random() * maxNumber) + minNumber;
+}
+console.log(`${randomName(names)} magic number is ${randomNumber(5,2)}`);
+
+
+// ========OBJECT LITERALS==============
+const request = (url, data) => {
+  $.ajax({method: "POST", url, data})
+}
