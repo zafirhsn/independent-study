@@ -50,3 +50,80 @@ console.log(`${randomName(names)} magic number is ${randomNumber(5,2)}`);
 const request = (url, data) => {
   $.ajax({method: "POST", url, data})
 }
+
+// EXERCISE 1 
+var name = "Francis";
+var lastname = "Jones"
+var age = 23;
+var obj
+
+let createObject = (name,lastname,age) => {
+   obj = {
+       name,
+       lastname,
+       age,
+       getName() {
+         return name;
+       }
+   }
+   return obj;
+}
+console.log(createObject(name,lastname,age))
+
+
+// =======DEFAULT FUNCTION ARGUMENTS========
+// Default function arguments let us define what the default argument should be if there is none given
+// In ES5 you might put an if statement to see if the argument is undefined in order to set a default
+
+function randomBrand() {
+  const brands = ["ASOS", "Macys", "MK", "Calvin Klein"];
+  return brands[Math.floor(Math.random() * brands.length)];
+}
+
+
+function clothes(brand = randomBrand()) {
+
+  console.log(`My brand is ${brand}`);
+}
+
+clothes();
+
+
+// EXERCISE 1 
+// We want to run a function that greets the user by his name, but if the name is not provided we want to show a default name.
+function greeting(name = "Bob"){
+
+  return 'Hello '+ name;
+}
+console.log(greeting());
+
+
+//=========REST OPERATOR==========
+
+function args(...args) {
+  console.log(args);
+}
+
+args("Val 1", "Val 2", "Val 3", "Val 4");
+
+// ========SPREAD OPERATOR=========
+const brands = ["Nissan", "Honda"];
+const otherBrands = ["Ford", "Toyota", "Audi"];
+
+// const newArr = brands.concat(otherBrands);
+
+const newArr = [...brands,...otherBrands,"Kia"];
+
+console.log(newArr);
+
+// EXERCISE 1
+// Refactor the code using ES6 and the rest operator
+let totalDistance = (...dists) => {
+  var total = 0;
+
+  for(var i = 0; i < dists.length;i++){
+      total += dists[i]
+  }
+  return total;
+}
+console.log(totalDistance(200,100,200))
