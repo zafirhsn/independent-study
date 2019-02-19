@@ -195,3 +195,61 @@ for (let i of carObj) {
 }
 
 console.log(newCar);
+
+
+//==========SETS===========
+// A collection of unique elements
+let mySet = new Set(["Harry", "Ron", "Hermione", "Hagrid", "Harry"]);
+
+mySet.add("Dumbledore");
+mySet.add("Voldemort").add("Goblin");
+
+for(let item of mySet) {
+  console.log(item);
+}
+
+mySet.forEach((item)=> {
+  console.log(item);
+})
+
+console.log(mySet);
+console.log(mySet.has("Harry"));
+
+mySet.delete("Hagrid");
+console.log(mySet.has("Hagrid"));
+console.log(mySet.size);
+mySet.clear();
+
+
+//========MAP=========
+let superHero = new Map();
+
+superHero.set("Batman",{
+  realName: "Bruce Wayne",
+  power: "Millionaire",
+  weaknes: "None"
+});
+
+superHero.set("Superman", {
+  realName: "Clark Kent",
+  power: "all",
+  weakness: "Not having power"
+});
+
+superHero.set("Whatever", "just a text");
+superHero.set("Trigger", ()=> {console.log("hello")});
+
+superHero.get("Trigger")();
+
+console.log(superHero.get("Batman").realName);
+console.log(superHero.size);
+console.log(superHero.has("Batman"));
+console.log(superHero.delete("Superman"));
+// superHero.clear();
+
+let x = 6;
+
+
+
+
+
