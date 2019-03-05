@@ -5,7 +5,7 @@ const user = {
   age: 25
 };
 
-const {name,lastname,age} = user;
+const {lastname,name,age} = user;
 
 const message = ({name, lastname,age}) => {
   console.log(`My name is ${name} ${lastname}, age ${age}`);
