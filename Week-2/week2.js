@@ -237,7 +237,7 @@ superHero.set("Superman", {
 });
 
 superHero.set("Whatever", "just a text");
-superHero.set("Trigger", ()=> {console.log("hello")});
+superHero.set("Trigger", ()=> { console.log("hello")});
 
 superHero.get("Trigger")();
 
@@ -247,7 +247,7 @@ console.log(superHero.has("Batman"));
 console.log(superHero.delete("Superman"));
 // superHero.clear();
 
-let x = 6;
+
 
 
 
