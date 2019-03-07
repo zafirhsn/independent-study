@@ -7,7 +7,7 @@
     "start": "node server\\bin\\www | .\\node_modules\\.bin\\bunyan"
   },
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.12",
     "cookie-parser": "~1.4.3",
