@@ -158,7 +158,7 @@ const stores = {
   store1: "New York",
   store2: "India",
   // This is a symbol iterator, not exactly sure what this is all about but replaces generator code written below
-  [Symbol.iterator]: function *(){
+  [Symbol.iterator]: function *() {
     yield this.store1;
     yield this.store2;
   }
@@ -237,7 +237,7 @@ superHero.set("Superman", {
 });
 
 superHero.set("Whatever", "just a text");
-superHero.set("Trigger", ()=> { console.log("hello")});
+superHero.set("Trigger", ()=> {console.log("hello")});
 
 superHero.get("Trigger")();
 
@@ -247,7 +247,7 @@ console.log(superHero.has("Batman"));
 console.log(superHero.delete("Superman"));
 // superHero.clear();
 
-
+let x = 6;
 
 
 
