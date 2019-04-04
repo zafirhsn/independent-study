@@ -1,15 +1,14 @@
 {
-  "name": "maxcoin",
+  "name": "examplemongo",
   "version": "1.0.0",
-  "description": "",
-  "main": "test.js",
+  "description": "Example mongo application",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Zafir",
   "license": "ISC",
   "dependencies": {
-    "mongodb": "^3.2.2",
-    "request": "^2.88.0"
+    "mongodb": "^3.2.2"
   }
 }
