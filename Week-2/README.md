@@ -7,8 +7,14 @@ https://www.udemy.com/the-complete-vue-js-course/learn/v4/content
 ## Topics Covered 
 ---
 ES6
-
+- Spread Operator
+- Generators
+- Destructuring
+- Classes in ES6
+- Promises/Fetch
+- Modules
+- Sets/Maps
 
 
 ## Blog Link
----
+https://medium.com/@zh754/es6-week-2-99a4d523cc09
