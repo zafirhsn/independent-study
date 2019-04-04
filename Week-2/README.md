@@ -8,12 +8,20 @@ https://www.udemy.com/the-complete-vue-js-course/learn/v4/content
 ---
 ES6
 - Spread Operator
+<<<<<<< HEAD
 - Generators
 - Destructuring
 - Classes in ES6
 - Promises/Fetch
 - Modules
 - Sets/Maps
+=======
+- Destructuring 
+- ES6 Classes
+- Generators
+- Sets
+- Maps
+>>>>>>> fb85390c008c0f27e18af97ddcf8ae1ef29144a6
 
 
 ## Blog Link
