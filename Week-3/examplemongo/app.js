@@ -13,15 +13,30 @@ client.connect((err) => {
 
   const db = client.db(dbName);
 
-  insertDocuments(db, function() {
+  insertDocuments(db, "documents", function() {
+    client.close();
+  });
+
+  updateDocument(db, function() {
     client.close();
   });
 });
 
-const insertDocuments = function(db, callback) {
-  const collection = db.collection("documents");
+const insertDocuments = function(db, collec, callback) {
+  const collection = db.collection(collec);
   collection.insertMany([
-    {a : 1}, {a: 2}, {a: 3} 
+    { first_name : "Zafir",
+      last_name: "Hasan",
+      gender: "Male"
+    }, 
+    { first_name : "Razin",
+      last_name: "Ahmed",
+      gender: "Male"
+  },
+    { first_name: "Lenay",
+      last_name: "Dem",
+      gender: "Female"
+    } 
   ], function(err, result) {
     assert.equal(err, null);
     assert.equal(3, result.result.n);
@@ -30,3 +45,15 @@ const insertDocuments = function(db, callback) {
     callback(result);
   });
 }
+
+
+const updateDocument = (db, doc, callback) => {
+  const collection = db.collection("documents");
+  collection.updateOne({
+    first_name: "Zafir"
+  }, {$set:{age:21}}, function(err, result) {
+    assert.equal(err, null);
+    console.log("Successfully updated document");
+  });
+
+};
