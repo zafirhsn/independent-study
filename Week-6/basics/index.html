@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+
+    <form v-on:submit.prevent="formHandler">
+      <label>Name</label>
+      <input type="text" v-model="formData.name">
+      <br>
+      <label>lastname</label>
+      <input type="text" v-model="formData.lastname">
+      <button type="submit">Submit</button>
+    </form>>
+
+  </div>
+
+</body>
+<script>
+
+  new Vue({
+    el: "#app",
+    data: {
+
+      formData: {
+        name: '',
+        lastname: ''
+      }
+
+    },
+    methods: {
+      formHandler() {
+        console.log(this.formData);
+      }
+    }
+ 
+  })
+
+</script>
+
+<style>
+  .box {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+  }
+</style>
+
+</html>
