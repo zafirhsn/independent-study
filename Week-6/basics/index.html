@@ -10,46 +10,39 @@
 <body>
   
   <div id="app">
-
-    <form v-on:submit.prevent="formHandler">
-      <label>Name</label>
-      <input type="text" v-model="formData.name">
-      <br>
-      <label>lastname</label>
-      <input type="text" v-model="formData.lastname">
-      <button type="submit">Submit</button>
-    </form>>
-
+    <p v-bind:class="{red:true}">Hello</p>
   </div>
+
+
 
 </body>
 <script>
-
   new Vue({
     el: "#app",
     data: {
-
-      formData: {
-        name: '',
-        lastname: ''
-      }
-
-    },
-    methods: {
-      formHandler() {
-        console.log(this.formData);
-      }
+      message: "Hello there",
+      num: 4,
+      isMorning: true,
+      items: [
+        "milk", 
+        "bananas",
+        "apples",
+        "bread"
+      ]
     }
  
   })
-
 </script>
 
 <style>
-  .box {
+  .green {
+    background-color: green;
+  }
+  .red {
     background-color: red;
-    width: 200px;
-    height: 200px;
+  }
+  .blue { 
+    background-color: blue;
   }
 </style>
 
