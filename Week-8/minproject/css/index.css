@@ -1,0 +1,67 @@
+body {
+  font-family: sans-serif;
+}
+
+.error {
+  color: red;
+}
+
+.pill {
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  vertical-align: middle;
+  display:inline-block;
+  text-align: center;
+  margin-right: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: white;
+  border-radius: 15px;
+  background-color: #208cff;
+  opacity: 0.9;
+}
+
+.loserButton {
+  box-shadow: none;
+  border-radius: 15px;
+  fill: white;
+  background-color: white;
+  color: #208cff;
+  border-color: #208cff;
+  border-width: 3px;
+}
+
+.loserButton:hover {
+  border-radius: 15px;
+  color: #266fbd;
+  border-color: #266fbd;
+
+}
+
+.inputStyle {
+  width: 200px;
+  height: 25px;
+  background-color: #e4e4e4;
+  box-shadow: none;
+  border: none;
+}
+
+.buttonStyle:active {
+  background-color: #266fbd;
+}
+
+.buttonStyle {
+  height: 25px;
+  width: 40px;
+  margin-left: -45px;
+  color: white;
+  background-color:#208aff;
+  outline: none;
+  border: none;
+}
+
+.heading {
+  color:#208aff;
+  font-size: 30px;
+}

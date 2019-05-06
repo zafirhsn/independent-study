@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/vue.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    @import './css/index.css';
+  </style>
+<body>
+
+  <div id="app">
+    <div v-if="list">
+      <h1 class="heading">Who pays the bill</h1>
+      <input v-model.lazy="inputName" ref="inputField" type="text" class="inputStyle" placeholder="name">
+      <button @click="addName" type="submit" class="buttonStyle">Add</button>
+      <div v-for="name in names" :class="{pill:true}">{{ name }}</div>
+      <span v-if="showErr" class="error">Can not add empty field</span>
+      <br>
+      <br>
+      <button v-if="names.length > 1" @click="checkLoser" class="loserButton" type="submit">Who's the loser?</button>
+    </div>
+
+    <div v-if="!list">
+      <h1 class="heading">The Loser</h1>
+      <p>{{ loser }}</p>
+      <button @click="list=!list, loser=''" class="loserButton">Go back to List</button>
+    </div>
+
+  </div>
+
+</body>
+<script>
+
+  const app = new Vue({
+    el: "#app",
+    data: {
+      inputName: '',
+      names: [],
+      showErr: false,
+      list: true,
+      loser: ''
+    },
+    methods: { 
+      addName() {
+        if (this.inputName != '') {
+          this.names.push(this.inputName);
+          this.showErr = false;
+        }
+        else {
+          this.showErr = true;
+        }  
+        this.$refs.inputField.value = '';
+        this.$refs.inputField.placeholder = '';
+        console.log(this.$refs.inputField);
+        console.log(this.$refs.inputField.value);
+      },
+      checkLoser() {
+        this.list = false;
+        this.loser = this.names[Math.floor(Math.random() * this.names.length)];
+      }
+    }
+
+  })  
+
+</script>
+
+
+</html>
