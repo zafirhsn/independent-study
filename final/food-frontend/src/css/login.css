@@ -1,0 +1,99 @@
+/* body, html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Roboto', 'sans-serif';
+  font-weight: 300;
+  background: linear-gradient(311.12deg, #1479D7 -14.51%, #61A6E7 76.97%, #659CCF 116.6%, #93C6F5 126.72%);
+} */
+
+div.login {
+	width: 300px;
+	padding: 40px;
+	box-sizing: border-box;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  margin-left: 40%;
+
+}
+
+@media only screen and (max-width: 1250px) {
+  div.login {
+    margin-left: 35%;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  div.login {
+    margin-left: 30%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  div.login {
+    margin-left: 25%;
+  }
+}
+
+input, rl {
+	display: block;
+	width: 100%;
+	margin-bottom: 15px;
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: 15px;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+}
+p {
+	display: none;
+	font-size: 12px;
+	margin: 0;
+	transform: translateY(-10px);
+	color: #666;
+}
+
+input:focus + p {
+	display: block;
+}
+
+input[type="submit"], rl {
+	border: none;
+	background-color: #268fff;
+	color: #fff;
+	display: none;
+}
+
+input[type="submit"]:hover {
+	background-color: #155ca8;
+
+}
+
+input[type="submit"]:disabled {
+  color:black;
+	background-color: rgb(184, 184, 184);
+	display: block;
+	opacity: 0.9;
+}
+
+input:valid ~ input:valid ~ input[type="submit"]:disabled {
+	display: none;
+}
+input:valid ~ input:valid ~ input[type="submit"]:not(:disabled) {
+	display: block;
+	cursor: pointer;
+}
+
+rl { 
+  text-align: center;
+  display: block;
+  background-color: #ff2626
+
+}
+
+rl:hover {
+  background-color: #bd1b1b;
+  cursor: pointer;
+}

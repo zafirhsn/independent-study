@@ -13,13 +13,9 @@ client.connect((err) => {
 
   const db = client.db(dbName);
 
-  insertDocuments(db, "documents", function() {
-    client.close();
-  });
 
-  updateDocument(db, function() {
-    client.close();
-  });
+
+  readDocument(db, "documents")
 });
 
 const insertDocuments = function(db, collec, callback) {
@@ -56,4 +52,16 @@ const updateDocument = (db, doc, callback) => {
     console.log("Successfully updated document");
   });
 
+};
+
+const readDocument = (db, doc, callback) => {
+  var resultArray = [];
+
+  let docum;
+  let cursor = db.collection(doc).find({first_name:"Razin", last_name: "Ahmed"}).toArray((err, docs)=> {
+    console.log(docs.length === 0);
+    client.close();
+  });
+
+  
 };

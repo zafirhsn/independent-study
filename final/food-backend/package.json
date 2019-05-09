@@ -1,0 +1,16 @@
+{
+  "name": "food-backend",
+  "version": "1.0.0",
+  "description": "Food waste site backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zafir",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongodb": "^3.2.4",
+    "sha1": "^1.1.1"
+  }
+}
