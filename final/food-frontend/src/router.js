@@ -5,9 +5,7 @@ import SignUp from './pages/Signup.vue'
 import Dashboard from './pages/Dashboard.vue'
 import Home from './Home.vue'
 import Settings from './pages/Settings.vue'
-
 import CreateListing from './pages/CreateListing.vue'
-
 import Schedule from './pages/Schedule.vue'
 import Listing from './pages/Listing.vue'
 

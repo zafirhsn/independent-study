@@ -10,7 +10,7 @@
 <body>
   
   <div id="app">
-    <p v-bind:class="{red:true}">Hello</p>
+    <p v-bind:class="[ colors.blueClass ]">Hello</p>
   </div>
 
 
@@ -28,7 +28,12 @@
         "bananas",
         "apples",
         "bread"
-      ]
+      ],
+      colors: {
+        blueClass: "blue",
+        redClass: "red"
+      }
+
     }
  
   })
