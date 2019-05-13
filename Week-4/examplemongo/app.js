@@ -1,11 +1,22 @@
 const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
+const express = require("express");
+const app = express();
+const ejs = require('ejs');
+const bodyParser = require('body-parser');
+
 
 const url = "mongodb://localhost:27017";
-
 const dbName = "exampleMongo";
-
 const client = new MongoClient(url, {useNewUrlParser:true});
+
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const port = 3000;
+
+
+
 
 client.connect((err) => {
   assert.equal(null, err);
