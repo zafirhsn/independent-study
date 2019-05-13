@@ -1,4 +1,4 @@
-# Week 7
+# Week 8
 ### Events, Modifiers, Lifecycle and more
 https://www.udemy.com/the-complete-vue-js-course/learn/v4/content
 
