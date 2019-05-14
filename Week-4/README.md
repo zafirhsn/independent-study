@@ -10,6 +10,7 @@ MongoDB
 - Reading from Mongo
 - Updating collections in Mongo
 - Deleting collections in Mongo
+- Starting GUI assignment
 
 
 ## Blog Link
