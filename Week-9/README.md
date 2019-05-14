@@ -1,5 +1,5 @@
 # Week 9
-### Mounting, Components, Lifecycle, and Node.js
+### Mini project, Mounting, Components
 https://www.udemy.com/the-complete-vue-js-course/learn/v4/content
 
 
@@ -7,10 +7,8 @@ https://www.udemy.com/the-complete-vue-js-course/learn/v4/content
 ---
 Vue.js
   - Mini project using single HTML file
-  - Mounting 
+  - Mounting Components in HTML
   - Components vs. Instances
-  - Vue Lifecycle
-  - Node.js
 
 ## Blog Link
 ---
