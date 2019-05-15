@@ -21,44 +21,73 @@ function isEmpty(obj) {
   return true;
 }
 
+client.connect((err) => {
+  if (err) {
+    console.log("An error occurred when trying to connect to the database");
+    console.log(err);
+  }
+  else {
+    assert.equal(null, err);
+    console.log("Connected successfully to database");
+  }
+});
+
 module.exports = {
   login(user_input, password_input, returnObject, callback) {
 
-    client.connect((err) => {
-      if (err) {
-        console.log(`Error occurred during login() with email ${user_input}. `, err);
-        returnObject.message = errorMessage + err;
+    const db = client.db(dbName);  
+      
+    let cursor = db.collection(ACCOUNTS).find({username: user_input }).toArray((err, docs)=> {
+
+      if (docs.length === 0) {
+        console.log(`couldn't find user with email ${user_input}`);
+        returnObject.message = emailNotFoundMessage;
+      }
+      else { 
+        // Does not account for users having the same username
+        if (docs[0].password === password_input) {
+          returnObject.message = loginSuccessMessage;
+          returnObject.data = docs[0];
+          returnObject.successful = true;
+          console.log(`Successfully logged in ${user_input}`);
+        }
+        else {
+          console.log("wrong password");
+          returnObject.message = wrongPasswordMessage;
+        }
+      }  
+      callback()
+    });  
+  },
+
+  signup(new_username, new_password, new_name, returnObject, callback) {
+
+    const db = client.db(dbName);  
+    
+    let cursor = db.collection(ACCOUNTS).find({user_name: new_username }).toArray((err, docs)=> { 
+      if (docs.length > 0) {
+        returnObject.successful - false;
+        returnObject.message = "There is already a user with that username"
+        returnObject.duplicate = true;
+        callback();
       }
       else {
-        assert.equal(null, err);
-        console.log("Connected successfully to server");
-        const db = client.db(dbName);  
-          
-        let cursor = db.collection(ACCOUNTS).find({user_name: user_input }).toArray((err, docs)=> {
+        db.collection(ACCOUNTS).insertOne({
+          username: new_username,
+          name: new_name,
+          password: new_password,
+          mylistings: []
+        }, (err, results) => {
+            assert.equal(err, null);
+            console.log("Successfully entered user into database");
 
-          if (docs.length === 0) {
-            console.log(`couldn't find user with email ${user_input}`);
-            returnObject.message = emailNotFoundMessage;
-          }
-          else { 
-            // Does not account for users having the same username
-            if (docs[0].pwd === password_input) {
-              returnObject.message = loginSuccessMessage;
-              returnObject.data = data;
-              returnObject.successful = true;
-              console.log(`Successfully logged in ${user_input}`);
-            }
-            else {
-              console.log("wrong password");
-              returnObject.message = wrongPasswordMessage;
-            }
-          }  
-          callback()
-        });  
-      };
-    });
-  }
-
-
-  
+            returnObject.duplicate = false
+            returnObject.successful = true
+            returnObject.message = 'Successfully created a new account'
+            callback()
+          });
+        }
+      });   
+    }
 };
+

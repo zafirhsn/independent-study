@@ -1,18 +1,13 @@
 const http = require('http');
-const port = 3000;
 const account = require('./models/account.js');
 const express = require('express');
 const event = require('./models/listing.js');
 var sha1 = require('sha1');
 
-var app = express()
+var app = express();
 
-app.route('/*')
-    .get(function(req, res) {
-          res.sendFile(path.join(__dirname + '/dist/index.html'));
-});
+const port = 3000;
 
-module.exports = app;
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -35,14 +30,23 @@ app.get('/login/:user/:password', function(req, res){
 
 });
 
+app.get('/signup/:username/:password/:name', function(req, res) {
+
+    var returnObject = new Object()
+    account.signup(req.params.username, sha1(req.params.password), req.params.name, returnObject, function() {
+        res.send(returnObject)
+    })
+});
+
+
 app.get('/loadlistings/:username', function(req, res) {
     var returnObject = new Object()
-    event.loadEvents(req.params.username, returnObject, function() {
+    event.loadlistings(req.params.username, returnObject, function() {
         console.log(returnObject)
         res.send(returnObject)
     })
 });
 
 var server = app.listen(3000, function() {
-
+    console.log(`Backend server is listening on port ${port}`);
 })

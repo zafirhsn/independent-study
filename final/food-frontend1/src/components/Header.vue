@@ -6,7 +6,7 @@
 
         <router-link to='schedule' tag="rl" class='btn'>Schedule</router-link>
 
-        <router-link to='createevent' tag="rl" class='btn'>Create Listing</router-link>
+        <router-link to='createlisting' tag="rl" class='btn'>Create Listing</router-link>
 
         <button v-on:click="loadDashboard()" tag="rl" class='btn'>Dashboard</button>
     </div>
@@ -14,7 +14,7 @@
 
 
 <!--This is how you add css to Vue -->
-<style scoped src="../css/header.css"></style>
+<!-- <style scoped src="../css/header.css"></style> -->
 
 <script>
 

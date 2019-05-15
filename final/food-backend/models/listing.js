@@ -21,37 +21,43 @@ function isEmpty(obj) {
   return true;
 }
 
+client.connect((err) => {
+  if (err) {
+    console.log("An error occurred when trying to connect to the database");
+    console.log(err);
+  }
+  else {
+    assert.equal(null, err);
+    console.log("Connected successfully to database");
+  }
+});
+
 module.exports = {
   
-  loadEvents(username, returnObject, callback) {
+  loadlistings(username, returnObject, callback) {
 
-    client.connect((err) => {
-      if (err) {
-        console.log("Error occurred during load listings");
-        returnObject.message = "Error: " + err;
-        callback();
-        return;     
-      }
-      else {
-        assert.equal(null, err);
-        console.log("Connected successfully to server");
-        const db = client.db(dbName);  
-          
-        let cursor = db.collection(LISTINGS).find({user_name: username}).toArray((err, docs)=> {
-          if (typeof docs[0].listings === "undefined") {
-            returnObject.message = "no events found";
-            callback();
-            return;
+    const db = client.db(dbName);  
+    let cursor = db.collection(ACCOUNTS).find({}).toArray((err, docs)=> {
+      console.log("The data from query");
+      console.log(docs);
+      returnObject.data = {};
+      returnObject.data.mylistings = [];
+      returnObject.data.alllistings = [];
+
+      for (let i = 0; i < docs.length; i++) {
+        if (docs[i].username === username) {
+          returnObject.data.mylistings = docs[i].mylistings;
+          returnObject.data.alllistings = docs[i].mylistings;
+        }
+        else {
+          for (let listing of docs[i].mylistings) {
+            returnObject.data.alllistings.push(listing)
           }
-          else {
-            returnObject.listings = [];
-            for (let i = 0; i < docs[0].listings.length; i++) {
-              returnObject.listings.push(docs[0].listings.length);
-            }
-            callback();
-          }
-        });
+        }
       }
+      callback();
+      return 
     });
-  } 
+  }
+
 };

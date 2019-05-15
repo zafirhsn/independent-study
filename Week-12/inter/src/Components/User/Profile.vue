@@ -50,7 +50,7 @@
                 this.$emit('updateName','Francis Steve')
             },
             addFriend(){
-                bus.$emit('addFriend',this.friendInput)
+                bus.$emit('addFriend', this.friendInput)
             }
         },
     }
