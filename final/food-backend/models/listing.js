@@ -58,6 +58,35 @@ module.exports = {
       callback();
       return 
     });
+  },
+
+  createListing(username, item, count, returnObject, callback) {
+
+    let listing = {
+      item: item,
+      count: count,
+      owner: username,
+      claimed: false
+    }
+
+    const db = client.db(dbName);  
+    let cursor = db.collection(ACCOUNTS).updateOne({username: username},
+    {$push: { mylistings:  listing }}, function(err, result) {
+      
+      assert.equal(err, null);
+      if (result.result.nModified === 0) {
+        returnObject.successfull = false;
+        returnObject.message = "Could not find user in database";
+        callback()
+        return;
+      } else {
+        returnObject.successfull = true;
+        returnObject.message = "Successfully added item";
+        console.log("Successfully updated document");
+        callback();
+        return;
+      }
+    });
   }
 
 };

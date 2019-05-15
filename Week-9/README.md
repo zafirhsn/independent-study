@@ -12,3 +12,4 @@ Vue.js
 
 ## Blog Link
 ---
+https://medium.com/@zh754/mini-project-mounting-and-components-week-9-144bcbf95cd7

@@ -1,10 +1,7 @@
 <template>
 
-<div>
-  <div class="card">
-
-  </div>
-  <p>Listing</p>
+<div class="listing">
+  <p></p>
 </div>
   
 
@@ -16,7 +13,7 @@
   export default {
     name: "Listing",
     props: {
-      
+      alllistings: Array
     }
 
   }
@@ -25,13 +22,10 @@
 
 <style scoped type="text/css">
   
-  div {
-    margin-top: 50px;
-    margin-right: 0px;
-    margin-left: 200px;
-    background-color: aqua;
-    height: 500px;
-    width:500px;
+  div.listing {
+    border-radius: 20px;
+    border-color: rgb(10, 156, 10);
+    border-width: 1px;
   }
 
 

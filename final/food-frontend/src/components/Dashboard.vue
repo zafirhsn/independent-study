@@ -2,11 +2,10 @@
   <div>
     <Header></Header>
     <strong>Dashboard </strong>
-    <p v-for="(listing, index) in alllistings" :key="index">
-      {{ listing.item }}</p>
-    
-      <b-button>Button</b-button>
-      <listing></listing>
+    <listing v-for="(listing, index) in alllistings" :key="index" :alllisting="alllistings"></listing>
+      
+    <b-button>Button</b-button>
+      
   </div>
 
 </template>

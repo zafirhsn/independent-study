@@ -1,7 +1,7 @@
 const http = require('http');
 const account = require('./models/account.js');
 const express = require('express');
-const event = require('./models/listing.js');
+const listing = require('./models/listing.js');
 var sha1 = require('sha1');
 
 var app = express();
@@ -38,10 +38,19 @@ app.get('/signup/:username/:password/:name', function(req, res) {
     })
 });
 
+app.get('/createlisting/:username/:item/:count', (req,res) => {
+
+    var returnObject = new Object()
+    listing.createListing(req.params.username, req.params.item, req.params.count, returnObject, function() {
+        console.log(returnObject)
+        res.send(returnObject)
+    })
+});
+
 
 app.get('/loadlistings/:username', function(req, res) {
     var returnObject = new Object()
-    event.loadlistings(req.params.username, returnObject, function() {
+    listing.loadlistings(req.params.username, returnObject, function() {
         console.log(returnObject)
         res.send(returnObject)
     })

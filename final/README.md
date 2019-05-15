@@ -62,7 +62,7 @@ There are two parts to this project; the backend API created using Express, and 
    npm install 
    ```
 3. ```
-   npm run dev
+   npm run serve
    ```
 4. Front-end should be running on port `8080` on `localhost`
 5. If app is crashing, it's most likely because some modules are not installed globally and need to be. Try the following
@@ -73,9 +73,9 @@ npm install -g @vue/cli
 npm install -g webpack
 ```
 ```
-npm install webpack-dev-server
+npm install -g webpack-dev-server
 ```
 ```
-npm install babel
+npm install -g babel
 ```
 

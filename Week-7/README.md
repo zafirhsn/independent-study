@@ -13,3 +13,4 @@ Vue.js
 
 ## Blog Link
 ---
+https://medium.com/@zh754/intro-to-vue-js-week-7-8d818dddb2f5

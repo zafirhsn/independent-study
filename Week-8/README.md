@@ -15,3 +15,4 @@ Vue.js
 
 ## Blog Link
 ---
+https://medium.com/@zh754/vue-events-modifiers-styling-and-more-week-8-4f230b1c91df

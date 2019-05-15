@@ -10,3 +10,4 @@ Vue.js
 
 ## Blog Link
 ---
+https://medium.com/@zh754/mini-project-with-node-js-and-vue-week-12-d64251dfe4cc
