@@ -9,7 +9,7 @@ The first step is to install MongoDB and MongoDB Compass. It's not neccessary to
 3. Open a terminal as `administrator`
 4. cd to where MongoDB lives on your computer. I'm running Windows, here's what it looks like for me
 
-![Screenshot](mongo.png)
+![Screenshot](https://github.com/zafirhsn/independent-study/blob/master/final/mongo.PNG)
 
 You may not have a `data` directory like I do. If you do not, create one. Within the `data` directory, if you do not have a `db` directory, create one. Finally, you might not have a `log` directory like I have, if you don't, create one. 
 
