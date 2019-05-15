@@ -28,7 +28,7 @@ The first path is your path to the `db` directory. The second path will create a
    net start mongodb
    ```
 
-   ![Screenshot](mongodbterminal.png)
+   ![Screenshot](https://github.com/zafirhsn/independent-study/blob/master/final/mongodbterminal.PNG)
 
    Example of what you should see after completing step 5 and 6
 
