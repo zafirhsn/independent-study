@@ -56,6 +56,33 @@ app.get('/loadlistings/:username', function(req, res) {
     })
 });
 
+app.get('/claimitem/:username/:owner/:item/:count', (req, res) => {
+    var returnObject = new Object()
+
+    let username = req.params.username;
+    let owner = req.params.owner;
+    let item = req.params.item;
+    let count = req.params.count;
+
+    listing.claimItem(username, owner, item, count, returnObject, function() {
+        console.log(returnObject)
+        res.send(returnObject)
+    })
+});
+
+app.get('/settings/:username/:password/:npassword1', (req, res) => {
+    let username = req.params.username;
+    let password = req.params.password;
+    let npassword1 = req.params.npassword1;
+    
+    var returnObject = new Object()
+    account.updatePassword(username, password, npassword1, returnObject, function() {
+        console.log(returnObject);
+        res.send(returnObject);
+    })
+
+});
+
 var server = app.listen(3000, function() {
     console.log(`Backend server is listening on port ${port}`);
 })

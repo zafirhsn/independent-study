@@ -1,5 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
+const sha1 = require('sha1');
 const url = "mongodb://localhost:27017";
 const dbName = "foodwaste";
 const client = new MongoClient(url, {useNewUrlParser:true});
@@ -40,7 +41,7 @@ module.exports = {
     let cursor = db.collection(ACCOUNTS).find({username: user_input }).toArray((err, docs)=> {
 
       if (docs.length === 0) {
-        console.log(`couldn't find user with email ${user_input}`);
+        console.log(`couldn't find user with username ${user_input}`);
         returnObject.message = emailNotFoundMessage;
       }
       else { 
@@ -88,6 +89,25 @@ module.exports = {
           });
         }
       });   
+    },
+
+    updatePassword(username, password, npassword1, returnObject, callback) {
+      const db = client.db(dbName); 
+      
+
+      let cursor = db.collection(ACCOUNTS).updateOne({ username: username, password: password}, {$set: {password: npassword1}}, function(err,result) {
+          if (result.result.nModified === 1) {
+            console.log("Password change successfull");
+            returnObject.successfull = true;
+            callback();
+          }
+          else {
+            console.log("Could not update password")
+            returnObject.successfull = false;
+            callback();
+          }
+
+        })
     }
 };
 

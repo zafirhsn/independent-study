@@ -28,6 +28,13 @@ import sha1 from 'sha1'
 
 export default {
     name: 'Settings',
+    data() {
+        return {
+            password: '',
+            npassword1: '',
+            npassword2: ''
+        }
+    },
     methods: {
         updatePassword() {
 
@@ -38,7 +45,7 @@ export default {
                 + sha1(this.password) + '/' + sha1(this.npassword1) })
                 .then(result => {
                     console.log(result)
-                    if (result.data.successful) {
+                    if (result.data.successfull) {
                         window.alert('Successfully changed your password')
                         this.$router.push('/dashboard')
                     } else {

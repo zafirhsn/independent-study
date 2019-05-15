@@ -1,7 +1,7 @@
 <template>
 
 <div class="listing">
-  <p></p>
+   <slot></slot>
 </div>
   
 
@@ -12,9 +12,6 @@
 <script>
   export default {
     name: "Listing",
-    props: {
-      alllistings: Array
-    }
 
   }
 
@@ -23,10 +20,20 @@
 <style scoped type="text/css">
   
   div.listing {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    min-width: 150px;
+    height: 150px;
     border-radius: 20px;
     border-color: rgb(10, 156, 10);
-    border-width: 1px;
+    border-width: 5px;
+    background-color: #dbdbdb;
   }
+
+
+
+
 
 
 </style>

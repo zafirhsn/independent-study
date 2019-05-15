@@ -6,7 +6,7 @@
             <h2>Item Name:</h2>
             <input type="text" v-model="item_name" placeholder="Item Name" />
             <h2>Count:</h2>
-            <input type="text" v-model="count" placeholder="Number of items" />
+            <input type="text" v-model="count" placeholder="Number of items"/>
 
         <br>
         <br>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="header">
         <button class="btn logout" type="button" v-on:click="logout()">Logout</button>
        
         <router-link to='settings' tag="rl" class='btn'>Settings</router-link>
@@ -8,7 +8,7 @@
 
         <router-link to='createlisting' tag="rl" class='btn'>Create Listing</router-link>
 
-        <button v-on:click="loadDashboard()" tag="rl" class='btn'>Dashboard</button>
+        <router-link to="dashboard" class="btn">Dashboard</router-link>
     </div>
 </template>
 
@@ -30,41 +30,12 @@ export default {
     methods: {
       logout() {
           this.$root.$data.authenticated = false
-          this.$root.$data.username = ''
-          this.$router.push('/login')
-          this.$root.$data.calendarEvents = []
-      },
-      loadDashboard() {
-            this.$root.$data.calendarEvents = []
+          this.$root.$data.username = '';
+          this.$root.$data.name = '';
+          this.$root.$data.mylistings = [];
+          this.$root.$data.alllistings = [];
+          this.$router.push('/login');
 
-          axios( { method: 'GET', 'url': this.$root.$data.backendAddress + '/loadevents/' + this.$root.$data.username } )
-          .then(result => {
-              console.log(result)
-              if (result.data.message === 'no events found') {
-                this.$root.$data.events = result.data.events
-                this.$router.push('/dashboard')
-              } else {
-                this.$root.$data.events = result.data.events
-                var completed = 0;
-                for (var i = 0; i < result.data.events.length; i++) {
-                completed+=1
-                if (result.data.events[i].event_time !== 'Time not chosen') {
-                    this.$root.$data.calendarEvents.push({title: result.data.events[i].event_name, start: new Date(result.data.events[i].event_time)})
-                    if (completed == result.data.events.length) {
-                    this.$router.push('/dashboard')
-
-                    } 
-                } else {
-                    if (completed == result.data.events.length) {
-                    this.$router.push('/dashboard')
-
-                    } 
-                }
-
-                }
-              }
-            
-          })
       }
   }
 }

@@ -38,7 +38,7 @@ module.exports = {
 
     const db = client.db(dbName);  
     let cursor = db.collection(ACCOUNTS).find({}).toArray((err, docs)=> {
-      console.log("The data from query");
+      console.log("LOADING LISTINGS");
       console.log(docs);
       returnObject.data = {};
       returnObject.data.mylistings = [];
@@ -46,15 +46,18 @@ module.exports = {
 
       for (let i = 0; i < docs.length; i++) {
         if (docs[i].username === username) {
-          returnObject.data.mylistings = docs[i].mylistings;
-          returnObject.data.alllistings = docs[i].mylistings;
+          returnObject.data.mylistings.push(...docs[i].mylistings);
+          returnObject.data.alllistings.push(...docs[i].mylistings);
         }
         else {
           for (let listing of docs[i].mylistings) {
+            console.log(listing)
             returnObject.data.alllistings.push(listing)
           }
         }
       }
+      console.log(returnObject.data.mylistings.length);
+      console.log()
       callback();
       return 
     });
@@ -64,14 +67,15 @@ module.exports = {
 
     let listing = {
       item: item,
-      count: count,
+      count: parseFloat(count),
       owner: username,
       claimed: false
     }
 
     const db = client.db(dbName);  
-    let cursor = db.collection(ACCOUNTS).updateOne({username: username},
-    {$push: { mylistings:  listing }}, function(err, result) {
+    let cursor = db.collection(ACCOUNTS).updateOne(
+      {username: username},
+      {$push: { mylistings:  listing }}, function(err, result) {
       
       assert.equal(err, null);
       if (result.result.nModified === 0) {
@@ -87,6 +91,35 @@ module.exports = {
         return;
       }
     });
+  },
+
+  claimItem(username, owner, item, count, returnObject, callback) {
+
+    const db = client.db(dbName);  
+
+    count = parseFloat(count);
+
+    let cursor = db.collection(ACCOUNTS).updateOne(
+      { "mylistings.item" : item, "mylistings.count": count, "mylistings.owner": owner, "mylistings.claimed": false }, { $set: { 'mylistings.$.claimed' : true}}, function(err, result) {
+      
+      if (result.result.nModified === 1) {
+        console.log("successfully updated database");
+        returnObject.successfull = true;
+      }
+    });
+
+    db.collection(ACCOUNTS).updateOne({username: username}, {$push: { mylistings: {item: item, count: count, owner: owner, claimed: true} } }, function(err, result) {
+      if (result.result.nModified === 1) {
+        console.log("Successfully claimed food item")
+        returnObject.successfull = true;
+      }
+      else {
+        returnObject.successfull = false;
+      }
+      callback();
+    });
+
+    
   }
 
 };

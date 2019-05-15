@@ -26,8 +26,8 @@ new Vue({
     authenticated: false,
     name: '',
     backendAddress: 'http://localhost:3000',
-    events: [],
-    currentEvent: null,
-    calendarEvents: []
+    mylistings: [],
+    alllistings: []
+
   }
 }).$mount('#app')
