@@ -1,5 +1,5 @@
 # Week 13
-### Final Project Idea and
+### Vue Resource and VueX
 https://www.udemy.com/the-complete-vue-js-course/learn/v4/content
 
 

@@ -1,5 +1,5 @@
 # Week 13
-### Final Project Idea and
+### Final Project Idea
 https://www.udemy.com/the-complete-vue-js-course/learn/v4/content
 
 
@@ -7,6 +7,7 @@ https://www.udemy.com/the-complete-vue-js-course/learn/v4/content
 ---
 Vue.js
   - Final Project
+  - Unit Testing
 
 ## Blog Link
 ---
