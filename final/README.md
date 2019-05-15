@@ -79,3 +79,25 @@ npm install -g webpack-dev-server
 npm install -g babel
 ```
 
+# Steps to Use
+1. Create an account
+2. Login with new account
+3. Click "create listing"
+4. Enter item name and number of items
+5. Logout
+6. Create another account
+7. Loging with this account
+8. Claim the listing that you made on the other account by clicking "claim"
+
+## Features
+1. Users can create new account and login. 
+2. Passwords are encrypted using sha1
+3. Users can create a post, saying what food item and how many of it they want to post.
+4. Users can see all other items posted by other others in their feed
+5. User can claim a food in their feed that isn't theirs
+6. On the left of the dashboard, users can see which posts of theirs haven't been claimed and which foods from other people they've claimed
+
+## Known Bugs
+1. Some bugs when refreshing pages (content not loading)
+2. You can change your password by clicking "settings" on your dashboard, but you can never log in again because the hashed passwords never match on the database for some reason.
+3. "Schedule" route doesn't exist
